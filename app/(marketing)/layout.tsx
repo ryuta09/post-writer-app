@@ -8,7 +8,7 @@ export default function MarketingLayout({children}: {children: React.ReactNode})
   return(
     <>
     <div>
-      <header className="container z-40 bg-background">
+      <header className="fixed container z-40 bg-background">
         <div className="h-20 py-6 flex items-center justify-between">
           <MainNav items={marketingConfig.mainNav}/>
           <nav>

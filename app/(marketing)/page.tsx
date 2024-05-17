@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function IndexPage() {
   return (
     <>
-      <section className="pt-6 md:pt-10 lg:py-32 pb-8 md:pb-12">
+      <section className="pt-28 lg:py-32 pb-10">
         <div className="container text-center flex flex-col items-center gap-3 mx-w-[64rem]">
           <Link
             href={siteConfig.links.x}
@@ -74,7 +74,7 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">Next.js</h3>
                 <p className="text-sm text-muted-foreground">
-                  AppRouter/Layouts/APIRoutesの技術を使用
+                  この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
                 </p>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">React</h3>
                 <p className="text-sm text-muted-foreground">
-                  AppRouter/Layouts/APIRoutesの技術を使用
+                  この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
                 </p>
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function IndexPage() {
               <div className="space-y-2">
                 <h3 className="font-bold">TypeScript</h3>
                 <p className="text-sm text-muted-foreground">
-                  AppRouter/Layouts/APIRoutesの技術を使用
+                  この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
                 </p>
               </div>
             </div>
@@ -133,14 +133,13 @@ export default function IndexPage() {
               >
                 <path
                   fill="currentColor"
-                  clipRule="evenodd"
-                  d="M386.399 35.508C217.06-64.061 1.885 57.55.012 253.882c-1.828 191.716 201.063 315.545 370.02 231.163L185.56 213.636v167.997c0 18.614-35.619 18.614-35.619 0V156.421c0-14.776 27.448-15.989 35.226-3.145L395.43 470.572c157.95-101.737 155.817-338.136-9.031-435.064zm-23.756 317.939L326.91 298.87V149.458c0-13.932 35.732-13.932 35.732 0v203.989z"
+                  d="M128 204.667C145.062 136.227 187.738 102 256 102c102.4 0 115.2 77 166.4 89.833c34.138 8.56 64-4.273 89.6-38.5C494.938 221.773 452.262 256 384 256c-102.4 0-115.2-77-166.4-89.833c-34.138-8.56-64 4.273-89.6 38.5zm-128 154C17.062 290.227 59.738 256 128 256c102.4 0 115.2 77 166.4 89.833c34.138 8.56 64-4.273 89.6-38.5C366.938 375.773 324.262 410 256 410c-102.4 0-115.2-77-166.4-89.833c-34.138-8.56-64 4.273-89.6 38.5z"
                 />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Next.js</h3>
+                <h3 className="font-bold">TailwindCSS</h3>
                 <p className="text-sm text-muted-foreground">
-                  AppRouter/Layouts/APIRoutesの技術を使用
+                  この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
                 </p>
               </div>
             </div>
@@ -151,54 +150,66 @@ export default function IndexPage() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
                 height="45"
-                viewBox="0 0 512 512"
+                viewBox="0 0 24 24"
               >
                 <path
                   fill="currentColor"
-                  d="M386.399 35.508C217.06-64.061 1.885 57.55.012 253.882c-1.828 191.716 201.063 315.545 370.02 231.163L185.56 213.636v167.997c0 18.614-35.619 18.614-35.619 0V156.421c0-14.776 27.448-15.989 35.226-3.145L395.43 470.572c157.95-101.737 155.817-338.136-9.031-435.064zm-23.756 317.939L326.91 298.87V149.458c0-13.932 35.732-13.932 35.732 0v203.989z"
+                  d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409c0-.831.683-1.305 1.901-1.305c2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0C9.667 0 7.589.654 6.104 1.872C4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219c2.585.92 3.445 1.574 3.445 2.583c0 .98-.84 1.545-2.354 1.545c-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813c1.664-1.305 2.525-3.236 2.525-5.732c0-4.128-2.524-5.851-6.594-7.305h.003z"
                 />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Next.js</h3>
+                <h3 className="font-bold">Stripe</h3>
                 <p className="text-sm text-muted-foreground">
-                  AppRouter/Layouts/APIRoutesの技術を使用
+                  この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
                 </p>
               </div>
             </div>
           </div>
           <div className="bg-background border p-2 rounded-lg">
-            <div className="flex flex-col justify-between p-6  h-[180px] md:h-[165px]">
+            <div className="flex flex-col justify-between p-6 gap-2 h-[180px] md:h-[165px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="45"
                 height="45"
-                viewBox="0 0 512 512"
+                viewBox="0 0 24 24"
               >
                 <path
                   fill="currentColor"
-                  clipRule="evenodd"
-                  d="M386.399 35.508C217.06-64.061 1.885 57.55.012 253.882c-1.828 191.716 201.063 315.545 370.02 231.163L185.56 213.636v167.997c0 18.614-35.619 18.614-35.619 0V156.421c0-14.776 27.448-15.989 35.226-3.145L395.43 470.572c157.95-101.737 155.817-338.136-9.031-435.064zm-23.756 317.939L326.91 298.87V149.458c0-13.932 35.732-13.932 35.732 0v203.989z"
+                  d="M22.219 11.784L11.784 22.219a1.045 1.045 0 0 0 1.476 1.476L23.695 13.26a1.045 1.045 0 0 0-1.476-1.476M20.132.305L.305 20.132a1.045 1.045 0 0 0 1.476 1.476L21.608 1.781A1.045 1.045 0 0 0 20.132.305"
                 />
               </svg>
               <div className="space-y-2">
-                <h3 className="font-bold">Next.js</h3>
+                <h3 className="font-bold">shadocn/ui</h3>
                 <p className="text-sm text-muted-foreground">
-                  AppRouter/Layouts/APIRoutesの技術を使用
+                  この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
                 </p>
               </div>
             </div>
           </div>
         </div>
-          <div className="mx-auto md:max-w-[58rem] text-center">
-            <p className="text-muted-foreground sm:text-lg sm:leading-7">Post Writerはログインをするとブログ投稿ができるようになります。</p>
-          </div>
+        <div className="mx-auto md:max-w-[58rem] text-center">
+          <p className="text-muted-foreground sm:text-lg sm:leading-7">
+            Post Writerはログインをするとブログ投稿ができるようになります。
+          </p>
+        </div>
       </section>
 
       <section id="conatct" className="container py-8 md:py-12 lg:py-24">
         <div className="max-w-[58rem] mx-auto text-center flex flex-col gap-4">
           <h2 className="font-extrabold text-3xl md:text-6xl">Contact Me</h2>
-          <p className="text-muted-foreground sm:text-lg sm:leading-7">もしもWebサービスが気に入った場合は下記xからDMでご連絡ください。<br />お仕事のご連絡をお待ちしております。</p>
-          <Link href={siteConfig.links.x} className="underline underline-offset-4" target="_blank" rel="noreferrer">お仕事はXまで</Link>
+          <p className="text-muted-foreground sm:text-lg sm:leading-7">
+            もしもWebサービスが気に入った場合は下記xからDMでご連絡ください。
+            <br />
+            お仕事のご連絡をお待ちしております。
+          </p>
+          <Link
+            href={siteConfig.links.x}
+            className="underline underline-offset-4"
+            target="_blank"
+            rel="noreferrer"
+          >
+            お仕事はXまで
+          </Link>
         </div>
       </section>
     </>
