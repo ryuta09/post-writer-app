@@ -32,7 +32,7 @@ export default async function PostPage({
           <h1 className="mt-2 font-extrabold text-4xl lg:text-5xl leading-tight">
             {post.title}
           </h1>
-          {post.image && (<Image src={post.image} alt={post.title} width={720} height={405} className="my-8 border rounded-md bg-muted" />)}
+          {post.image && (<Image src={post.image} alt={post.title} width={720} height={405} className="my-8 border rounded-md bg-muted w-full" />)}
         </div>
         <Mdx code={post.body.code}/>
         <hr  className="mt-12"/>
