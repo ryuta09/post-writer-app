@@ -17,3 +17,4 @@ export type SiteConfig = {
 export type MarketingConfig = {
   mainNav: NavItem[];
 }
+
