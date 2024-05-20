@@ -9,6 +9,7 @@ export const authOptions: NextAuthOptions = {
     }),
     // Google({})
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/login"
   },
@@ -23,5 +24,5 @@ export const authOptions: NextAuthOptions = {
 
       return session;
     }
-  }
+  },
 }
