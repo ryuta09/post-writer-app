@@ -17,20 +17,19 @@ model Account {
   id                 String    @id @default(cuid())
   userId             String
   type               String
-  Provide            String
-  providerId         String
+  provider           String
   providerAccountId  String
-  refresh_Token      String? @db.Text
-  access_Token       String? @db.Text
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
   expries_at         Int?
-  toekn_type         String?
+  token_type         String?
   scope              String?
   id_token           String? @db.Text
   session_state      String? @db.Text
   createdAt          DateTime  @default(now()) @map(name: "created_at")
   updatedAt          DateTime  @updatedAt @map(name: "updated_at")
   user               User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  @@unique([providerId, providerAccountId])
+  @@unique([provider, providerAccountId])
   @@map(name: "accounts")
 }
 
