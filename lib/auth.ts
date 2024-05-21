@@ -35,4 +35,8 @@ export const authOptions: NextAuthOptions = {
       return session;
     }
   },
+  // 保存先のストラテジーをjwtに指定
+  session: {
+    strategy: "jwt"
+  }
 }
