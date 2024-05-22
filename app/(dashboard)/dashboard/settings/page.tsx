@@ -1,8 +1,9 @@
+import DashboardShell from '@/components/DashboardShell'
 import React from 'react'
 
 const Settings = () => {
   return (
-    <div>Settings</div>
+    <DashboardShell>Settings</DashboardShell>
   )
 }
 

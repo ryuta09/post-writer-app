@@ -1,8 +1,9 @@
+import DashboardShell from '@/components/DashboardShell'
 import React from 'react'
 
 const Billing = () => {
   return (
-    <div>Billing</div>
+    <DashboardShell>Billing</DashboardShell>
   )
 }
 
