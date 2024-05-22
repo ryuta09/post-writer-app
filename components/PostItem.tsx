@@ -1,6 +1,7 @@
 import { Post } from "@prisma/client"
 import { format } from "date-fns"
 import Link from "next/link"
+import PostOperations from "./PostOperations"
 
 interface PostItemProps {
   post: Pick<Post, 'id' | 'title' | 'published' | 'createdAt'>
@@ -15,6 +16,7 @@ export default function PostItem({post}: PostItemProps) {
           <p className="text-sm text-muted-foreground">{format(post.createdAt, 'yyyy-MM-dd')}</p>
         </div>
       </div>
+      <PostOperations  post={post}/>
     </div>
     </>
   )
