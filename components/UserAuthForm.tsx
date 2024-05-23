@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { Icon } from "./Icon";
+import { Icons as Icon } from "./Icon";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 export default function UserAuthForm() {
@@ -44,7 +44,7 @@ export default function UserAuthForm() {
             }}
           >
             {isGitHubLoading ? (
-              <Icon.spiner className="animate-spin" />
+              <Icon.spinner className="animate-spin" />
             ) : (
               <Icon.github className="mr-2" />
             )}
@@ -58,7 +58,7 @@ export default function UserAuthForm() {
             }}
           >
             {isGitHubLoading ? (
-              <Icon.spiner className="animate-spin" />
+              <Icon.spinner className="animate-spin" />
             ) : (
               <Icon.google className="mr-2" />
             )}

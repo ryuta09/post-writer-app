@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 import { ButtonProps, buttonVariants } from "./ui/button";
 import { useState } from "react";
 import { Icons as Icon } from "./Icon";
+import { useRouter } from "next/navigation";
+import { toast } from "./ui/use-toast";
 interface PostCreateButtonProps extends ButtonProps {}
 export default function PostCreateButton({
   className,
@@ -10,8 +12,35 @@ export default function PostCreateButton({
   ...props
 }: PostCreateButtonProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter()
+  const onClick = async () => {
 
-  const onClick = async () => {};
+    setIsLoading(true)
+
+    const response = await fetch('api/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: 'Untitled Post'
+      })
+    })
+
+    setIsLoading(false)
+
+    if(!response.ok) {
+      return toast({
+        title: '問題が発生しました',
+        description: '投稿が作成されませんでした。もう一度お試しください。',
+        variant: 'destructive'
+      })
+    }
+
+    const post = await response.json()
+    router.refresh()
+    router.push(`editor/${post.id}`)
+  };
   return (
     <>
       <button

@@ -18,7 +18,8 @@ export async function POST(req: NextRequest) {
     }
 
     const { user } = session;
-    const json = req.json();
+    console.log(session)
+    const json = await req.json();
     // zodによるバリデーション
     const body = postCreateSchema.parse(json);
     const { title, content } = body;
