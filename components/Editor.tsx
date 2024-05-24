@@ -3,7 +3,30 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import TextareaAutosizse from "react-textarea-autosize";
+import EditorJS from '@editorjs/editorjs';
+import { useEffect, useState } from "react";
+
 export default function Editor() {
+  const [isMounted, setIsMounted] = useState<boolean>(false)
+  const initializeEditor = async () => {
+    const editor = new EditorJS({
+      holder: 'editor',
+      placeholder: 'ここに記事を書く',
+      inlineToolbar: true,
+    })
+  }
+
+  useEffect(()=> {
+    if(typeof window !== "undefined" ) {
+      setIsMounted(true)
+    }
+  },[])
+
+  useEffect(() => {
+    if(isMounted) {
+      initializeEditor()
+    }
+  },[isMounted])
   return (
     <>
       <form>
