@@ -5,7 +5,10 @@ import { buttonVariants } from "./ui/button";
 import TextareaAutosizse from "react-textarea-autosize";
 import EditorJS from '@editorjs/editorjs';
 import { useEffect, useState } from "react";
-
+import Header from '@editorjs/header';
+import LinkTool from '@editorjs/link';
+import List from "@editorjs/list";
+import Code from "@editorjs/code";
 export default function Editor() {
   const [isMounted, setIsMounted] = useState<boolean>(false)
   const initializeEditor = async () => {
@@ -13,6 +16,12 @@ export default function Editor() {
       holder: 'editor',
       placeholder: 'ここに記事を書く',
       inlineToolbar: true,
+      tools: {
+        header: Header,
+        linktool: LinkTool,
+        list: List,
+        code: Code
+      }
     })
   }
 
