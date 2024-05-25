@@ -10,6 +10,9 @@ import LinkTool from '@editorjs/link';
 import List from "@editorjs/list";
 import Code from "@editorjs/code";
 import { Post } from "@prisma/client";
+import { useForm } from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import { postPatchSchema, postPatchSchemaType } from "@/lib/validations/post";
 interface EditroProps {
   post: Pick<Post, 'id' | 'title' | 'content' | 'published' >
 }
@@ -49,6 +52,10 @@ export default function Editor({post}:EditroProps) {
       ref.current = undefined
     }
   },[isMounted, initializeEditor])
+
+  const {register, handleSubmit, formState: {errors}} = useForm<postPatchSchemaType>({
+    resolver: zodResolver(postPatchSchema),
+  });
   return (
     <>
       <form>
