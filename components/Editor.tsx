@@ -15,6 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { postPatchSchema, postPatchSchemaType } from "@/lib/validations/post";
 import { toast } from "./ui/use-toast";
 import { useRouter } from "next/navigation";
+import { Icons } from "./Icon";
 interface EditroProps {
   post: Pick<Post, "id" | "title" | "content" | "published">;
 }
@@ -22,7 +23,9 @@ export default function Editor({ post }: EditroProps) {
   const ref = useRef<EditorJS>();
   const router = useRouter();
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isSaving, setIsSaving] = useState<boolean>(false);
   const initializeEditor = useCallback(async () => {
+    const body = postPatchSchema.parse(post);
     const editor = new EditorJS({
       holder: "editor",
       onReady() {
@@ -30,7 +33,7 @@ export default function Editor({ post }: EditroProps) {
       },
       placeholder: "ここに記事を書く",
       inlineToolbar: true,
-      data: post.content as any,
+      data: body.content,
       tools: {
         header: Header,
         linktool: LinkTool,
@@ -38,7 +41,7 @@ export default function Editor({ post }: EditroProps) {
         code: Code,
       },
     });
-  }, []);
+  }, [post]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -66,6 +69,7 @@ export default function Editor({ post }: EditroProps) {
   });
 
   const onSubmit = async (data: postPatchSchemaType) => {
+    setIsSaving(true);
     const blocks = await ref.current?.save();
     const response = await fetch(`/api/posts/${post.id}`, {
       method: "PATCH",
@@ -74,6 +78,9 @@ export default function Editor({ post }: EditroProps) {
       },
       body: JSON.stringify({ title: data.title, content: blocks }),
     });
+
+    setIsSaving(false);
+
     if (!response.ok) {
       return toast({
         title: "問題が発生しました",
@@ -102,6 +109,9 @@ export default function Editor({ post }: EditroProps) {
               <p className="text-sm text-muted-foreground">公開</p>
             </div>
             <button className={cn(buttonVariants())} type="submit">
+              {isSaving && (
+                <Icons.spinner className="w-4 h-4 mr-2 animate-spin" />
+              )}
               保存
             </button>
           </div>
