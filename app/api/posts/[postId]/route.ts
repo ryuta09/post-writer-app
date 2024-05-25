@@ -40,6 +40,32 @@ export async function PATCH(req: NextRequest, context: z.infer<typeof routeConte
   return NextResponse.json(null, {status: 200})
 }
 
+
+export async function DELETE(req: NextRequest, context: z.infer<typeof routeContetSchema>) {
+  try {
+    const {params} = routeContetSchema.parse(context);
+    if(!(await verifyCurrentUserHasAccessToPost(params.postId))) {
+      return NextResponse.json(null, {status: 403})
+    }
+  
+    await db.post.delete({
+      where: {
+        id: params.postId
+      },
+    })
+    return new Response(null, {status: 204})
+  } catch (error) {
+    if(error instanceof z.ZodError) {
+      return NextResponse.json(error.issues, {status: 422})
+    } else {
+      return NextResponse.json(null,{status: 500})
+    }
+  }
+  
+
+  // return NextResponse.json(null, {status: 200})
+}
+
 async function verifyCurrentUserHasAccessToPost(postId: string) {
   const session = await getServerSession(authOptions);
   const count = await db.post.count({
