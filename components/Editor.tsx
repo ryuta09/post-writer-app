@@ -56,9 +56,15 @@ export default function Editor({post}:EditroProps) {
   const {register, handleSubmit, formState: {errors}} = useForm<postPatchSchemaType>({
     resolver: zodResolver(postPatchSchema),
   });
+
+  const onSubmit = async(data: postPatchSchemaType) => {
+    const blocks = await ref.current?.save(); 
+    console.log(data);
+    console.log(blocks);
+  }
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col w-full gap-10">
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center space-x-10">
@@ -81,6 +87,7 @@ export default function Editor({post}:EditroProps) {
               defaultValue={post?.title}
               placeholder="Post Title"
               className="w-full resize-none overflow-hidden bg-transparent text-5xl focus:outline-none font-bold"
+              {...register('title')}
             />
           </div>
           <div id='editor' className="min-h-[500px]"/>
