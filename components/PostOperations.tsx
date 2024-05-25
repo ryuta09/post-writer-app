@@ -49,6 +49,7 @@ async function deletePost(postId: string) {
 export default function PostOperations({ post }: PostOperationsProps) {
   const router = useRouter();
   const [showDeleteAlert, setShowDeleteAlert] = useState<boolean>(false);
+  const [isDelteLoading, setIsDelteLoading] = useState<boolean>(false);
   return (
     <>
       <DropdownMenu>
@@ -81,16 +82,26 @@ export default function PostOperations({ post }: PostOperationsProps) {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>キャンセル</AlertDialogCancel>
-            <AlertDialogAction onClick={async (e) => {
-              e.preventDefault();
-              const deleted = await deletePost(post.id);
-              if(deleted) {
-                setShowDeleteAlert(false);
-                router.refresh();
-              }
-            }}
-            className="bg-red-600 focus:ring-red-600"
-            >削除</AlertDialogAction>
+            <AlertDialogAction
+              onClick={async (e) => {
+                e.preventDefault();
+                setIsDelteLoading(true);
+                const deleted = await deletePost(post.id);
+                if (deleted) {
+                  setShowDeleteAlert(false);
+                  setIsDelteLoading(false);
+                  router.refresh();
+                }
+              }}
+              className="bg-red-600 focus:ring-red-600"
+            >
+              {isDelteLoading ? (
+                <Icons.spinner className="animate-spin w-4 h-4" />
+              ) : (
+                <Icons.trash className="w-4 h-4 mr-2" />
+              )}
+              削除
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
