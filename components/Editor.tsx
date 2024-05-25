@@ -9,7 +9,11 @@ import Header from '@editorjs/header';
 import LinkTool from '@editorjs/link';
 import List from "@editorjs/list";
 import Code from "@editorjs/code";
-export default function Editor() {
+import { Post } from "@prisma/client";
+interface EditroProps {
+  post: Pick<Post, 'id' | 'title' | 'content' | 'published' >
+}
+export default function Editor({post}:EditroProps) {
   const ref = useRef<EditorJS>();
   const [isMounted, setIsMounted] = useState<boolean>(false)
   const initializeEditor = useCallback(  async () => {
@@ -67,6 +71,7 @@ export default function Editor() {
             <TextareaAutosizse
               id="title"
               autoFocus
+              defaultValue={post?.title}
               placeholder="Post Title"
               className="w-full resize-none overflow-hidden bg-transparent text-5xl focus:outline-none font-bold"
             />
